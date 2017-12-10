@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Quién llama</string>
+    <string name="togglebutton">Encendido/Apagado</string>
+    <string name="you_can_activate_deactivate_our_service">Puedes activar/desactivar el servicio</string>
+    <string name="off">Apagado</string>
+    <string name="on">Encendido</string>
+</resources>

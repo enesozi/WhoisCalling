@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kim Arıyor</string>
+    <string name="togglebutton">Açık/Kapalı</string>
+    <string name="you_can_activate_deactivate_our_service">Servisi aktif veya pasif hale
+        getirebilirsin
+    </string>
+    <string name="off">Kapalı</string>
+    <string name="on">Açık</string>
+</resources>

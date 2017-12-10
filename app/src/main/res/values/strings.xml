@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Who is Calling</string>
+    <string name="togglebutton">ON/OFF</string>
+    <string name="you_can_activate_deactivate_our_service">You can activate/deactivate our service</string>
+    <string name="off">OFF</string>
+    <string name="on">ON</string>
+</resources>
