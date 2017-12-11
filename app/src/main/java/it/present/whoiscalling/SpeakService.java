@@ -15,8 +15,9 @@ public class SpeakService extends Service {
     private Speaker speaker;
     private String name;
     private Context context;
-    private int LONG_DURATION = 5000;
-    private int MULTIPLIER = 350;
+    private int LONG_DURATION = 4000;
+    private int MULTIPLIER = 175;
+    private int currentVolume = 0;
     private AudioManager audioManager ;
 
     @Override
@@ -39,6 +40,7 @@ public class SpeakService extends Service {
         context =  getApplicationContext();
         speaker = new Speaker(context);
         audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
+        currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_RING);
         System.out.println("NAMEcreate "+name);
         startSpeaking();
     }
@@ -46,7 +48,8 @@ public class SpeakService extends Service {
     Runnable ringRunnable = new Runnable() {
         @Override
         public void run() {
-            audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            //audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            audioManager.setStreamVolume(AudioManager.STREAM_RING,currentVolume,0);
             handlerRing.postDelayed(speakRunnable,LONG_DURATION);
         }
     };
@@ -54,7 +57,8 @@ public class SpeakService extends Service {
     Runnable speakRunnable = new Runnable()
     {
         public void run() {
-            audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            //audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+            audioManager.setStreamVolume(AudioManager.STREAM_RING,currentVolume/2,0);
             speaker.allow(true);
                 speaker.speak(name);
                 handler.postDelayed(ringRunnable,name.length()*MULTIPLIER);
